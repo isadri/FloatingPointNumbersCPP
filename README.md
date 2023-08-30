@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Floating-Point Numbers
 
 Everything is stored in computers in the form of bits, which means that everything is stored as binary numbers. But some kinds of numbers are definitely easier to express in terms of bits than others.
@@ -18,7 +17,7 @@ To represent what mathematicians call the positive *************whole numbers***
 
 Thus, the integer 234 is 11101010 in binary.
 
-    Some computers use a sign in the binary representation of a number to indicate that this number is negative or positive, this sign is the most-significant bit (i.e., the left most bit), and is called the ********sign bit********. If the sign bit is 0, then the number is positve, otherwise, is negative.
+Some computers use a sign in the binary representation of a number to indicate that this number is negative or positive, this sign is the most-significant bit (i.e., the left most bit), and is called the ********sign bit********. If the sign bit is 0, then the number is positve, otherwise, is negative.
 
 For the negative integers, you can use a method know as *******the two’s complement******* to represent a given negative intger. This method involves the following steps:
 
