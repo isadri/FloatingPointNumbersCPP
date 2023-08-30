@@ -51,9 +51,9 @@ public:
 	void	setFp(float);
 
 private:
-	FP					_fp;
-	int					_value;
-	enum				{ FRAC_BITS = 8, FRAC_OF_MULT = 16 };
+	FP		_fp;
+	int		_value;
+	enum	{ FRAC_BITS = 8, FRAC_OF_MULT = 16 };
 };
 
 #endif
