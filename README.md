@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Floating-Point Numbers
 
 Everything is stored in computers in the form of bits, which means that everything is stored as binary numbers. But some kinds of numbers are definitely easier to express in terms of bits than others.
