@@ -28,14 +28,31 @@ FP&	FP::operator=(const FP& f) {
 	return *this;
 }
 
+FP	FP::operator+(const FP& f) const {
+	return FP(_fpValue.value + f._fpValue.value);
+}
+
+FP	FP::operator-(const FP& f) const {
+	return FP(_fpValue.value - f._fpValue.value);
+}
+
+FP	FP::operator*(const FP& f) const {
+	return FP(_fpValue.value * f._fpValue.value);
+}
+
+FP	FP::operator/(const FP& f) const {
+	return FP(_fpValue.value / f._fpValue.value);
+}
+
 void	FP::fillMemBits() {
-	unsigned char*	c = _fpValue.c;
-	int				k = 0;
+	char	c;
+	int		k = 0;
 
 	for (int i = sizeof(float) - 1; i >= 0; i--) {
+		c = _fpValue.c[i];
 		for (int j = 0; j < BYTE_SIZE; j++) {
-			_memBits[k++] = (128 & c[i]) ? '1' : '0';
-			c[i] <<= 1;
+			_memBits[k++] = (128 & c) ? '1' : '0';
+			c = _fpValue.c[i] << 1;
 		}
 	}
 }

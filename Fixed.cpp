@@ -26,7 +26,7 @@ Fixed&	Fixed::operator=(const Fixed& f) {
 }
 
 bool	Fixed::operator>(const Fixed& f) const {
-	return toFloat() > f.toFloat();
+	return _value > f._value;
 }
 
 bool	Fixed::operator<(const Fixed& f) const {
@@ -34,15 +34,15 @@ bool	Fixed::operator<(const Fixed& f) const {
 }
 
 bool	Fixed::operator>=(const Fixed& f) const {
-	return toFloat() >= f.toFloat();
+	return _value >= f._value;
 }
 
 bool	Fixed::operator<=(const Fixed& f) const {
-	return toFloat() <= f.toFloat();
+	return _value <= f._value;
 }
 
 bool	Fixed::operator==(const Fixed& f) const {
-	return fabs(toFloat() - f.toFloat()) < FLT_EPSILON;
+	return _value == f._value;
 }
 
 bool	Fixed::operator!=(const Fixed& f) const {
@@ -58,12 +58,10 @@ Fixed	Fixed::operator-(const Fixed& f) {
 }
 
 Fixed	Fixed::operator*(const Fixed& f) {
-	//return (toFloat() * f.toFloat());
 	return Fixed((_value * f._value) >> FRAC_OF_MULT);
 }
 
 Fixed	Fixed::operator/(const Fixed& f) {
-	//return Fixed(toFloat() / f.toFloat());
 	return Fixed((float)_value / f._value);
 }
 
@@ -96,7 +94,7 @@ Fixed&	Fixed::min(Fixed& f1, Fixed& f2) {
 }
 
 Fixed&	Fixed::min(const Fixed& f1, const Fixed& f2) {
-	return min((Fixed&)f1, (Fixed&)f2);
+	return (Fixed&)((f1 < f2) ? f1 : f2);
 }
 
 Fixed&	Fixed::max(Fixed& f1, Fixed& f2) {
@@ -104,7 +102,7 @@ Fixed&	Fixed::max(Fixed& f1, Fixed& f2) {
 }
 
 Fixed&	Fixed::max(const Fixed& f1, const Fixed& f2) {
-	return max((Fixed&)f1, (Fixed&)f2);
+	return (Fixed&)((f1 > f2) ? f1 : f2);
 }
 
 int	Fixed::getRawBits() const {

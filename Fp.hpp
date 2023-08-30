@@ -23,7 +23,11 @@ namespace	FP_REP {
 
 		FP&	operator=(const FP&);
 
-		void	fillMemBits();
+		FP	operator+(const FP&) const;
+		FP	operator-(const FP&) const;
+		FP	operator*(const FP&) const;
+		FP	operator/(const FP&) const;
+
 		void	displayBinRepresentation();
 		void	displaySinglePrecisionFormat();
 
@@ -37,6 +41,8 @@ namespace	FP_REP {
 			FORMAT_SIZE = 32, BYTE_SIZE = 8, EXP_SIZE = 8, FRACT_SIZE = 23
 		};
 		char		_memBits[FORMAT_SIZE];
+
+		void	fillMemBits();
 	};
 
 	unsigned long long	operator"" _b(unsigned long long);

@@ -1,9 +1,12 @@
 #include "Fixed.hpp"
+#include "Fp.hpp"
+#include <ios>
 
 int	main() {
-	Fixed	f(12.3f);
+	FP	f(12.4f);
+	FP	s(2.6f);
 	
-	std::cout << f.getRawBits() << '\n';
-	std::cout << f.getFp() << '\n';
+	f.displayBinRepresentation();
+	s.displayBinRepresentation();
 	return 0;
 }
