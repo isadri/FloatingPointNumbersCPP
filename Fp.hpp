@@ -2,6 +2,7 @@
 #define __FP_HPP__
 
 #include <iostream>
+#include <ostream>
 #include <string.h>
 
 typedef union	{
@@ -19,13 +20,18 @@ public:
 
 	FP&	operator=(const FP&);
 
+	void	fillMemBits();
 	void	displayBinRepresentation();
 	void	displaySinglePrecisionFormat();
+
+	float	getFpValue() const;
+
+	friend std::ostream&	operator<<(std::ostream&, const FP&);
 
 private:
 	FloatNbr	_fpValue;
 	enum		{
-		BYTE_SIZE = 8, EXP_SIZE = 8, FRACT_SIZE = 23
+		FORMAT_SZIE = 32, BYTE_SIZE = 8, EXP_SIZE = 8, FRACT_SIZE = 23
 	};
 	std::string		_memBits;
 };

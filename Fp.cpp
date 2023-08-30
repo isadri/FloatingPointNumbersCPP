@@ -1,33 +1,45 @@
 #include "Fp.hpp"
 #include <cstdlib>
+#include <ostream>
 
 FP::FP(float number) : _fpValue({number}) {
+	fillMemBits();
 }
 
 FP::FP(int number) : _fpValue({float(number)}) {
+	fillMemBits();
 }
 
 FP::FP(const char* number) : _fpValue({(float)atof(number)}) {
+	fillMemBits();
 }
 
 FP::FP(const FP& f) {
+	fillMemBits();
 }
 
 FP&	FP::operator=(const FP& f) {
 	_fpValue = f._fpValue;
 	_memBits = f._memBits;
+	fillMemBits();
 	return *this;
 }
 
-void	FP::displayBinRepresentation() {
-	int	i = 0;
+void	FP::fillMemBits() {
+	unsigned char*	c = _fpValue.c;
+	int				k = 0;
 
 	for (int i = sizeof(float) - 1; i >= 0; i--) {
 		for (int j = 0; j < BYTE_SIZE; j++) {
-			_memBits[i] = (128 & _fpValue.c[i]) ? '1' : '0';
-			std::cout << _memBits[i++]; 
-			_fpValue.c[i] <<= 1;
+			_memBits[k++] = (128 & c[i]) ? '1' : '0';
+			c[i] <<= 1;
 		}
+	}
+}
+
+void	FP::displayBinRepresentation() {
+	for (int i = 0; i < FORMAT_SZIE; i++) {
+		std::cout << _memBits[i]; 
 	}
 }
 
@@ -42,4 +54,13 @@ void	FP::displaySinglePrecisionFormat() {
 	for (int j = 0; j < FRACT_SIZE; j++)
 		std::cout << _memBits[j + i];
 	std::cout << '\n';
+}
+
+float	FP::getFpValue() const {
+	return _fpValue.value;
+}
+
+std::ostream&	operator<<(std::ostream& os, const FP& f) {
+	os << f._fpValue.value;
+	return os;
 }

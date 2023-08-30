@@ -10,8 +10,8 @@
 class	Fixed {
 public:
 	Fixed();
-	Fixed(const int);
-	Fixed(const float);
+	Fixed(int);
+	Fixed(float);
 	Fixed(const Fixed&);
 	~Fixed();
 
@@ -33,6 +33,8 @@ public:
 	Fixed	operator--(int);
 	Fixed	operator++(int);
 
+	friend std::ostream&	operator<<(std::ostream&, const Fixed&);
+
 	int		getRawBits() const;
 	void	setRawBits(int const);
 	float	toFloat() const;
@@ -43,12 +45,13 @@ public:
 	static Fixed&	max(Fixed&, Fixed&);
 	static Fixed&	max(const Fixed&, const Fixed&);
 
+	FP&		getFp();
+	void	setFp(float);
+
 private:
 	FP					_fp;
 	int					_value;
 	static const int	_fracBits = 8;
 };
-
-std::ostream&	operator<<(std::ostream&, const Fixed&);
 
 #endif

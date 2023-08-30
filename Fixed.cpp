@@ -1,13 +1,14 @@
 #include "Fixed.hpp"
+#include "Fp.hpp"
 #include <cmath>
 
 Fixed::Fixed() : _fp(0), _value(0) {
 }
 
-Fixed::Fixed(const int value) : _fp(value), _value(value << _fracBits) {
+Fixed::Fixed(int value) : _fp(value), _value(value << _fracBits) {
 }
 
-Fixed::Fixed(const float value) 
+Fixed::Fixed(float value) 
 	: _fp(value)
 	, _value((int)(round(value * (1 << _fracBits))))
 {
@@ -29,7 +30,7 @@ bool	Fixed::operator>(const Fixed& f) const {
 }
 
 bool	Fixed::operator<(const Fixed& f) const {
-	return !(*this > f) && *this != f;
+	return !(*this >= f);
 }
 
 bool	Fixed::operator>=(const Fixed& f) const {
@@ -120,17 +121,15 @@ int	Fixed::toInt() const {
 	return _value >> _fracBits;
 }
 
+FP&	Fixed::getFp() {
+	return _fp;
+}
+
+void	Fixed::setFp(float f) {
+	_fp = FP(f);
+}
+
 std::ostream&	operator<<(std::ostream& os, const Fixed& f) {
 	os << f.toFloat();
 	return os;
-}
-
-Fixed&	operator--(Fixed& f) {
-	f.setRawBits(f.getRawBits() - 1);
-	return f;
-}
-
-Fixed&	operator++(Fixed& f) {
-	f.setRawBits(f.getRawBits() + 1);
-	return f;
 }
