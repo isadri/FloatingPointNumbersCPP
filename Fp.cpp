@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <ostream>
 
+using namespace FP_REP;
+
 FP::FP(float number) : _fpValue({number}) {
 	fillMemBits();
 }
@@ -20,7 +22,8 @@ FP::FP(const FP& f) {
 
 FP&	FP::operator=(const FP& f) {
 	_fpValue = f._fpValue;
-	_memBits = f._memBits;
+	for (int i = 0; i < FORMAT_SIZE; i++)
+		_memBits[i] = f._memBits[i];
 	fillMemBits();
 	return *this;
 }
@@ -38,9 +41,10 @@ void	FP::fillMemBits() {
 }
 
 void	FP::displayBinRepresentation() {
-	for (int i = 0; i < FORMAT_SZIE; i++) {
+	for (int i = 0; i < FORMAT_SIZE; i++) {
 		std::cout << _memBits[i]; 
 	}
+	std::cout << '\n';
 }
 
 void	FP::displaySinglePrecisionFormat() {
@@ -60,7 +64,18 @@ float	FP::getFpValue() const {
 	return _fpValue.value;
 }
 
-std::ostream&	operator<<(std::ostream& os, const FP& f) {
+std::ostream&	FP_REP::operator<<(std::ostream& os, const FP& f) {
 	os << f._fpValue.value;
 	return os;
+}
+
+unsigned long long	FP_REP::operator""_b(unsigned long long bin) {
+	long long	dec = 0;
+	int			p = 0;
+
+	while (bin) {
+		dec += pow(2, p++) * (bin % 10);
+		bin /= 10;
+	}
+	return dec;
 }

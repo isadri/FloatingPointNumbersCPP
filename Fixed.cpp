@@ -5,12 +5,12 @@
 Fixed::Fixed() : _fp(0), _value(0) {
 }
 
-Fixed::Fixed(int value) : _fp(value), _value(value << _fracBits) {
+Fixed::Fixed(int value) : _fp(value), _value(value << FRAC_BITS) {
 }
 
 Fixed::Fixed(float value) 
 	: _fp(value)
-	, _value((int)(round(value * (1 << _fracBits))))
+	, _value((int)(round(value * (1 << FRAC_BITS))))
 {
 }
 
@@ -58,11 +58,13 @@ Fixed	Fixed::operator-(const Fixed& f) {
 }
 
 Fixed	Fixed::operator*(const Fixed& f) {
-	return (toFloat() * f.toFloat());
+	//return (toFloat() * f.toFloat());
+	return Fixed((_value * f._value) >> FRAC_OF_MULT);
 }
 
 Fixed	Fixed::operator/(const Fixed& f) {
-	return Fixed(toFloat() / f.toFloat());
+	//return Fixed(toFloat() / f.toFloat());
+	return Fixed((float)_value / f._value);
 }
 
 Fixed&	Fixed::operator--() {
@@ -114,11 +116,11 @@ void	Fixed::setRawBits(int const raw) {
 }
 
 float	Fixed::toFloat() const {
-	return (float)_value / (1 << _fracBits);
+	return (float)_value / (1 << FRAC_BITS);
 }
 
 int	Fixed::toInt() const {
-	return _value >> _fracBits;
+	return _value >> FRAC_BITS;
 }
 
 FP&	Fixed::getFp() {

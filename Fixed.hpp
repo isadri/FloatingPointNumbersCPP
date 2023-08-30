@@ -7,6 +7,8 @@
 
 #define FLT_EPSILON ((float)pow(2, -8))
 
+using namespace	FP_REP;
+
 class	Fixed {
 public:
 	Fixed();
@@ -51,7 +53,7 @@ public:
 private:
 	FP					_fp;
 	int					_value;
-	static const int	_fracBits = 8;
+	enum				{ FRAC_BITS = 8, FRAC_OF_MULT = 16 };
 };
 
 #endif

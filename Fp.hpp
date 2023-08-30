@@ -2,38 +2,44 @@
 #define __FP_HPP__
 
 #include <iostream>
+#include <optional>
 #include <ostream>
 #include <string.h>
 
-typedef union	{
-	float			value;
-	unsigned char	c[sizeof(float)];
-}	FloatNbr;
+namespace	FP_REP {
 
-class	FP {
-public:
-	FP(float);
-	FP(int);
-	FP(const char*);
-	FP(const FP&);
-	~FP() = default;
+	typedef union	{
+		float			value;
+		unsigned char	c[sizeof(float)];
+	}	FloatNbr;
 
-	FP&	operator=(const FP&);
+	class	FP {
+	public:
+		FP(float);
+		FP(int);
+		FP(const char*);
+		FP(const FP&);
+		~FP() = default;
 
-	void	fillMemBits();
-	void	displayBinRepresentation();
-	void	displaySinglePrecisionFormat();
+		FP&	operator=(const FP&);
 
-	float	getFpValue() const;
+		void	fillMemBits();
+		void	displayBinRepresentation();
+		void	displaySinglePrecisionFormat();
 
-	friend std::ostream&	operator<<(std::ostream&, const FP&);
+		float	getFpValue() const;
 
-private:
-	FloatNbr	_fpValue;
-	enum		{
-		FORMAT_SZIE = 32, BYTE_SIZE = 8, EXP_SIZE = 8, FRACT_SIZE = 23
+		friend std::ostream&	operator<<(std::ostream&, const FP&);
+
+	private:
+		FloatNbr	_fpValue;
+		enum		{
+			FORMAT_SIZE = 32, BYTE_SIZE = 8, EXP_SIZE = 8, FRACT_SIZE = 23
+		};
+		char		_memBits[FORMAT_SIZE];
 	};
-	std::string		_memBits;
-};
+
+	unsigned long long	operator"" _b(unsigned long long);
+}
 
 #endif
