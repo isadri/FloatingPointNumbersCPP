@@ -52,7 +52,7 @@ void	FP::fillMemBits() {
 		c = _fpValue.c[i];
 		for (int j = 0; j < BYTE_SIZE; j++) {
 			_memBits[k++] = (128 & c) ? '1' : '0';
-			c = _fpValue.c[i] << 1;
+			c <<= 1;
 		}
 	}
 }

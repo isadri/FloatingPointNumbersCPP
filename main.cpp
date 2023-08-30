@@ -7,6 +7,8 @@ int	main() {
 	FP	s(2.6f);
 	
 	f.displayBinRepresentation();
+	f.displaySinglePrecisionFormat();
 	s.displayBinRepresentation();
+	s.displaySinglePrecisionFormat();
 	return 0;
 }
