@@ -37,7 +37,8 @@ So -120 is 10001000 in binary (notice the sign bit is 1, which means that this n
 
 In decimal number system, digits to the left of the decimal point are multiples of integral powers to ten. Similarly, digits to the right of the decimal point are multiples of negarive powers of ten.
 
-<img src=”https://github.com/es-liby/FloatingPointNumbersCPP/assets/116354167/86c16260-fff4-4d11-b929-76a1356cb118" alt=”my banner”>
+/*/<img src=”https://github.com/es-liby/FloatingPointNumbersCPP/assets/116354167/86c16260-fff4-4d11-b929-76a1356cb118" alt=”my banner”>
+<img width="665" alt="Screen_Shot_2023-08-21_at_2 24 59_PM" src="https://github.com/es-liby/FloatingPointNumbersCPP/assets/116354167/e376d61c-ebfb-4870-b166-7af23b6b8c2f">
 
 For example, 42,705.684 is equal to
 
