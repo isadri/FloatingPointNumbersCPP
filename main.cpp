@@ -3,12 +3,9 @@
 #include <ios>
 
 int	main() {
-	FP	f(12.4f);
-	FP	s(2.6f);
+	FP	f(43);
 	
 	f.displayBinRepresentation();
 	f.displaySinglePrecisionFormat();
-	s.displayBinRepresentation();
-	s.displaySinglePrecisionFormat();
 	return 0;
 }
