@@ -50,15 +50,21 @@ bool	Fixed::operator!=(const Fixed& f) const {
 }
 
 Fixed	Fixed::operator+(const Fixed& f) {
-	return Fixed(_value + f._value);
+	Fixed	n;
+
+	n.setRawBits(_value + f._value);
+	return n;
 }
 
 Fixed	Fixed::operator-(const Fixed& f) {
-	return Fixed(_value - f._value);
+	Fixed	n;
+
+	n.setRawBits(_value - f._value);
+	return n;
 }
 
 Fixed	Fixed::operator*(const Fixed& f) {
-	return Fixed((_value * f._value) >> FRAC_OF_MULT);
+	return Fixed((float)(_value * f._value) / (1 << FRAC_OF_MULT));
 }
 
 Fixed	Fixed::operator/(const Fixed& f) {

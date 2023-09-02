@@ -37,9 +37,13 @@ public:
 
 	friend std::ostream&	operator<<(std::ostream&, const Fixed&);
 
+	// get fixed-point value
 	int		getRawBits() const;
+	// set fixed-point value
 	void	setRawBits(int const);
+	// get float-point value
 	float	toFloat() const;
+	// get int value
 	int		toInt() const;
 
 	static Fixed&	min(Fixed&, Fixed&);
