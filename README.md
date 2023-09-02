@@ -37,7 +37,8 @@ Mathematicians define another type of numbers called the *rational numbers* as t
 
 In decimal number system, digits to the left of the decimal point are multiples of integral powers to ten. Similarly, digits to the right of the decimal point are multiples of negative powers of ten.
 
-<img width="350" alt="Screen_Shot_2023-08-21_at_2 24 59_PM" src="https://github.com/es-liby/FloatingPointNumbersCPP/assets/116354167/05b33dec-861f-44ec-be88-daad43572aa5">
+<img width="665" alt="Screen_Shot_2023-08-21_at_2 24 59_PM" src="https://github.com/es-liby/FloatingPointNumbersCPP/assets/116354167/00ce17d7-fe14-48f2-8e03-6d0f877513c2">
+
 
 For example, 42,705.684 is equal to
 
@@ -248,7 +249,8 @@ There are special cases:
 - If ****e**** = 255 and *f* = 0, the number is positive or negative infinity, depending on the sign *s*.
 - If **e** = 255 and *f* ≠ 0, the value is considered to be not a number, which is abreviated NaN. A NaN could indicate an unknown number or the result of an invalid operation.
 
-<img width="500" alt="SpecialCases" src="https://github.com/es-liby/FloatingPointNumbersCPP/assets/116354167/9e035e20-ed54-48d2-b83f-3a157f19960a">
+<img width="1170" alt="SpecialCases" src="https://github.com/es-liby/FloatingPointNumbersCPP/assets/116354167/8b58ad82-15a8-492c-a6a0-9842e03bbb56">
+
 
 The smallest normalized positive or negative binary that can be represented in single-precision floating-point format is:
 
