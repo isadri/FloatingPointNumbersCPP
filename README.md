@@ -37,7 +37,7 @@ Mathematicians define another type of numbers called the *rational numbers* as t
 
 In decimal number system, digits to the left of the decimal point are multiples of integral powers to ten. Similarly, digits to the right of the decimal point are multiples of negative powers of ten.
 
-![Screen Shot 2023-08-21 at 2.24.59 PM.png](Floating-Point%20Numbers%200c1d77ccc6694ca9882febcabb9b7609/Screen_Shot_2023-08-21_at_2.24.59_PM.png)
+<img width="350" alt="Screen_Shot_2023-08-21_at_2 24 59_PM" src="https://github.com/es-liby/FloatingPointNumbersCPP/assets/116354167/05b33dec-861f-44ec-be88-daad43572aa5">
 
 For example, 42,705.684 is equal to
 
@@ -229,14 +229,11 @@ That’s a total of 32 bits, or 4 bytes. Because the significand of a normalized
 
 The 8-bit exponent part can range from 0 through 255. This is called a *******biased******* exponent, which means that you must subtract a number - called the ****bias**** - from the exponent in order to determine the signed exponent that actually applies. For single-precision floating-point numbers, this bias is 127.
 
-<aside>
-💡 The exponent is biased - the value stored is offset from the actual value by the *************exponent bias*************, also called a ***************biased exponent***************. Biasing is done because exponents have to be signed values in order to be able to represent both tiny and huge values, but two’s complement, the usual representation for signed values, would make comparison harder.
+The exponent is biased - the value stored is offset from the actual value by the *************exponent bias*************, also called a ***************biased exponent***************. Biasing is done because exponents have to be signed values in order to be able to represent both tiny and huge values, but two’s complement, the usual representation for signed values, would make comparison harder.
 To solve this problem, the exponent is stored as an unsigned value which is suitable for comparison, and when being interpreted it is converted into an exponent within a signed range by subtracting the bias.
 By arranging the fields such that the sign bit takes the most significant bit position, the biased exponent takes the middle position, then the significand will be the least significant bits and the resulting value will be ordered properly. This is the case whether or not it is interpreted as a floating-point or integer value. The purpose of this is to enable high speed comparisons between floating-point numbers using fixed-point hardware.
 To calculate the bias for an arbitrary sized floating-point number apply the formula 2 ^ (k - 1) - 1, where k is the number of bits in the exponent.
 When interpreting the floating-point number, the bias is subtracted to retrieve the actual exponent.
-
-</aside>
 
 If the exponent ranges from 1 through 254, the number represented by particular values of *s* (the sign bit), *e* (the exponent), and *f* (the significand fraction) is ************(-1) ^ s * 1.f * 2 ^ (e - 127)************.
 
@@ -251,7 +248,7 @@ There are special cases:
 - If ****e**** = 255 and *f* = 0, the number is positive or negative infinity, depending on the sign *s*.
 - If **e** = 255 and *f* ≠ 0, the value is considered to be not a number, which is abreviated NaN. A NaN could indicate an unknown number or the result of an invalid operation.
 
-![SpecialCases.png](Floating-Point%20Numbers%200c1d77ccc6694ca9882febcabb9b7609/SpecialCases.png)
+<img width="500" alt="SpecialCases" src="https://github.com/es-liby/FloatingPointNumbersCPP/assets/116354167/9e035e20-ed54-48d2-b83f-3a157f19960a">
 
 The smallest normalized positive or negative binary that can be represented in single-precision floating-point format is:
 
