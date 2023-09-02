@@ -249,7 +249,8 @@ There are special cases:
 - If ****e**** = 255 and *f* = 0, the number is positive or negative infinity, depending on the sign *s*.
 - If **e** = 255 and *f* ≠ 0, the value is considered to be not a number, which is abreviated NaN. A NaN could indicate an unknown number or the result of an invalid operation.
 
-<img width="1170" alt="SpecialCases" src="https://github.com/es-liby/FloatingPointNumbersCPP/assets/116354167/8b58ad82-15a8-492c-a6a0-9842e03bbb56">
+
+<img width="1048" alt="Screen Shot 2023-09-02 at 9 50 51 AM" src="https://github.com/es-liby/FloatingPointNumbersCPP/assets/116354167/2a6ed03b-d8e9-492c-b1f4-e3f22c4d007f">
 
 
 The smallest normalized positive or negative binary that can be represented in single-precision floating-point format is:
