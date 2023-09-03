@@ -45,6 +45,8 @@ public:
 	float	toFloat() const;
 	// get int value
 	int		toInt() const;
+	
+	void	displayRepresentation();
 
 	static Fixed&	min(Fixed&, Fixed&);
 	static Fixed&	min(const Fixed&, const Fixed&);

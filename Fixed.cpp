@@ -14,7 +14,7 @@ Fixed::Fixed(float value)
 {
 }
 
-Fixed::Fixed(const Fixed& f) : _fp(f._fp), _value(f._value){
+Fixed::Fixed(const Fixed& f) : _fp(f._fp), _value(f._value) {
 }
 
 Fixed::~Fixed() {
@@ -125,6 +125,10 @@ float	Fixed::toFloat() const {
 
 int	Fixed::toInt() const {
 	return _value >> FRAC_BITS;
+}
+
+void	Fixed::displayRepresentation() {
+	_fp.displaySinglePrecisionFormat();
 }
 
 FP&	Fixed::getFp() {

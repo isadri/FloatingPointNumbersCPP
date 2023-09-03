@@ -16,5 +16,7 @@ int	main() {
 	std::cout << "f - s = " << f - s << '\n';
 	std::cout << "f * s = " << f * s << '\n';
 	std::cout << "f / s = " << f / s << '\n';
+	f.displayRepresentation();
+	s.displayRepresentation();
 	return 0;
 }
