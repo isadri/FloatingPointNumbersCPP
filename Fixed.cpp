@@ -30,7 +30,7 @@ bool	Fixed::operator>(const Fixed& f) const {
 }
 
 bool	Fixed::operator<(const Fixed& f) const {
-	return !(*this >= f);
+	return _value < f._value;
 }
 
 bool	Fixed::operator>=(const Fixed& f) const {
@@ -46,7 +46,7 @@ bool	Fixed::operator==(const Fixed& f) const {
 }
 
 bool	Fixed::operator!=(const Fixed& f) const {
-	return !(*this == f);
+	return _value != f._value;
 }
 
 Fixed	Fixed::operator+(const Fixed& f) {
@@ -72,26 +72,26 @@ Fixed	Fixed::operator/(const Fixed& f) {
 }
 
 Fixed&	Fixed::operator--() {
-	*this = Fixed(toFloat() - FLT_EPSILON);
+	--_value;
 	return *this;
 }
 
 Fixed&	Fixed::operator++() {
-	*this = Fixed(toFloat() + FLT_EPSILON);
+	++_value;
 	return *this;
 }
 
 Fixed	Fixed::operator++(int) {
 	Fixed	old = *this;
 
-	++*this;
+	_value++;
 	return old;
 }
 
 Fixed	Fixed::operator--(int) {
 	Fixed	old = *this;
 
-	--*this;
+	_value--;
 	return old;
 }
 
