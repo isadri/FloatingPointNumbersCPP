@@ -282,4 +282,4 @@ The largest is
 
 1.1111111111111111111111111111111111111111111111111111 * 2 ^ 1023
 
-The 53 bits of the significand (including the 1 bit that’s not included) is a resolution approximately equivalent to 16 decimal digits. This is much better than single-precision floating-point format, but it still means that eventually some number will equal some other number.
+The 53 bits of the significand is a resolution approximately equivalent to 16 decimal digits. This is much better than single-precision floating-point format, but it still means that eventually some number will equal some other number.
